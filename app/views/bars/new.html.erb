@@ -1,0 +1,32 @@
+<h1>Add a New Bar</h1>
+<%= form_for @bar do |f| %>
+  <%= f.label :name, 'Bar Name' %>:
+  <%= f.text_field :name %><br /><br />
+  <%= f.label :address %>:
+  <%= f.text_field :address %><br /><br />
+  <%= f.label :neighborhood %>:
+  <%= f.select :neighborhood, ['Downtown', 'Galleria', 'Midtown', 'Montrose', 'Spring Branch']%><br /><br />
+  <%= f.label :phone_number %>:
+  <%= f.text_field :phone_number %><br /><br />
+  <%= f.label :vibe %>:
+  <%= f.select :vibe, ['Casual', 'Chill', 'Classy', 'Divey', 'Festive', 'Lit', 'Sports', 'Super Trendy', 'Trendy']%><br /><br />
+  <%= f.label :price_level %>:
+  <%= f.select :price_level, ['$', '$$', '$$$', '$$$$']%><br /><br />
+  <%= f.label :sake %>:
+  <%= f.text_field :sake %><br /><br />
+  <%= f.label :beer %>:
+  <%= f.text_field :beer %><br /><br />
+  <%= f.label :cocktail %>:
+  <%= f.text_field :cocktail %><br /><br />
+  <%= f.label :wine_glass %>:
+  <%= f.text_field :wine_glass %><br /><br />
+  <%= f.label :wine_bottle %>:
+  <%= f.text_field :wine_bottle %><br /><br />
+  <%= f.label :beer_and_shot %>:
+  <%= f.text_field :beer_and_shot %><br /><br />
+  <%= f.label :start_time %>:
+  <%= f.text_field :start_time %><br /><br />
+  <%= f.label :end_time %>:
+  <%= f.text_field :end_time %><br /><br />
+  <%= f.submit %>
+<% end %>
