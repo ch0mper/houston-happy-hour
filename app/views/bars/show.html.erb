@@ -1,15 +1,18 @@
 <h1><%= @bar.name %></h1>
 
-<%= @bar.address %><br />
-<%= @bar.phone_number %><br />
-<%= @bar.neighborhood %><br />
-<%= @bar.vibe %><br />
-Price Level: <%= @bar.price_level %><br />
+Address: <%= @bar.address %><br />
+Phone Number: <a href="tel:<%= @bar.phone_number %>"><%= @bar.phone_number %></a><br />
+Neighborhood: <%= @bar.neighborhood %><br />
+Vibe: <%= @bar.vibe %><br />
+Price Level: <%= @bar.price_level %><br /><br />
+<h2>Prices</h2>
 Sake: <%= @bar.sake %><br />
 Beer: <%= @bar.beer %><br />
 Cocktail: <%= @bar.cocktail %><br />
 Wine Glass: <%= @bar.wine_glass %><br />
 Wine Bottle: <%= @bar.wine_bottle %><br />
-Beer and Shot: <%= @bar.beer_and_shot %><br />
-Happy Hour Start Time: <%= @bar.start_time %><br />
-Happy Hour End Time: <%= @bar.end_time %><br />
+Beer and Shot: <%= @bar.beer_and_shot %><br /><br />
+Happy Hour Start Time: <%= @bar.start_time.strftime("%I:%M%p") %><br />
+Happy Hour End Time: <%= @bar.end_time.strftime("%I:%M%p") %><br /><br /><br />
+
+<%= link_to "go back to all bars", bars_path%>
