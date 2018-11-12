@@ -1,4 +1,4 @@
-class List < ApplicationRecord
+class UserBar < ApplicationRecord
   belongs_to :user
   belongs_to :bar
 end
