@@ -1,0 +1,11 @@
+<%= form_for @user do |form| %>
+  <%= form.label 'Username' %>: 
+  <%= form.text_field :username %><br />
+  <%= form.label 'Password' %>: 
+  <%= form.number_field :password %><br />
+  <%= form.label 'Favorite_drink' %>: 
+  <%= form.text_field :favorite_drink %><br />
+  <%= form.label 'Age' %><br />
+  <%= form.number_field :age %><br />
+  <%= form.submit %>
+<% end %>
