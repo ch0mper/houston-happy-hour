@@ -1,4 +1,5 @@
 <h1><%= @bar.name %></h1>
+<a class="button" href="userbars/create">Add to my list! (this button is fake)</a><br /><br /><br />
 
 Address: <%= @bar.address %><br />
 Phone Number: <a href="tel:<%= @bar.phone_number %>"><%= @bar.phone_number %></a><br />
@@ -6,13 +7,25 @@ Neighborhood: <%= @bar.neighborhood %><br />
 Vibe: <%= @bar.vibe %><br />
 Price Level: <%= @bar.price_level %><br /><br />
 <h2>Prices</h2>
-Sake: <%= @bar.sake %><br />
-Beer: <%= @bar.beer %><br />
-Cocktail: <%= @bar.cocktail %><br />
-Wine Glass: <%= @bar.wine_glass %><br />
-Wine Bottle: <%= @bar.wine_bottle %><br />
-Beer and Shot: <%= @bar.beer_and_shot %><br /><br />
-Happy Hour Start Time: <%= @bar.start_time.strftime("%I:%M%p") %><br />
-Happy Hour End Time: <%= @bar.end_time.strftime("%I:%M%p") %><br /><br /><br />
+<% if @bar.sake != nil %>
+Sake: $<%= @bar.sake %><br />
+<% end %>
+<% if @bar.beer != nil %>
+Beer: $<%= @bar.beer %><br />
+<% end %>
+<% if @bar.cocktail != nil %>
+Cocktail: $<%= @bar.cocktail %><br />
+<% end %>
+<% if @bar.wine_glass != nil %>
+Wine Glass: $<%= @bar.wine_glass %><br />
+<% end %>
+<% if @bar.wine_bottle != nil %>
+Wine Bottle: $<%= @bar.wine_bottle %><br />
+<% end %>
+<% if @bar.beer_and_shot != nil %>
+Beer and Shot: $<%= @bar.beer_and_shot %><br />
+<% end %>
+<br /><br />Start Time: <%= @bar.start_time.strftime("%I:%M%p") %><br />
+End Time: <%= @bar.end_time.strftime("%I:%M%p") %><br /><br /><br />
 
 <%= link_to "go back to all bars", bars_path%>

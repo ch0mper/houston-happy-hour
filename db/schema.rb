@@ -34,10 +34,10 @@ ActiveRecord::Schema.define(version: 2018_11_12_200113) do
 
   create_table "user_bars", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "bars_id"
+    t.integer "bar_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["bars_id"], name: "index_user_bars_on_bars_id"
+    t.index ["bar_id"], name: "index_user_bars_on_bar_id"
     t.index ["user_id"], name: "index_user_bars_on_user_id"
   end
 

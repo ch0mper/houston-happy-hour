@@ -2,7 +2,14 @@ class BarsController < ApplicationController
   before_action :define_current_bars
 
   def index
-    @bars = Bar.all
+    if params[:search]
+      @bars = Bar.all.select do |b|
+        b.neighborhood.include? params[:search]
+        #byebug
+      end
+    else
+      @bars = Bar.all
+    end
   end
 
   def show
