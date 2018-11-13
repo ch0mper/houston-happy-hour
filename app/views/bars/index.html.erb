@@ -7,11 +7,9 @@
 <% end %>
 
 <% @bars.each do |b| %>
-  <div class="table">
-    <ul>
+    <ul style="list-style: none;">
       <li><%= link_to b.name, b %>, <%= b.neighborhood%></li>
     </ul>
-  </div>
 <% end %>
 <br />
 
