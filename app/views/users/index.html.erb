@@ -1,4 +1,6 @@
 <h1>Happy People</h1>
 <% @users.each do |u|%>
-  <ul><li><%= link_to u.username, u %></li></ul>
+  <ul style="list-style: none;">
+    <li><%= link_to u.username, u %></li>
+  </ul>
 <% end %>
