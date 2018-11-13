@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
-    before_action :set_user, only: [:show, :edit]
+    before_action :set_user, only: [:show, :edit, :update]
     
     def index
         @users = User.all
     end
+    
     def show
-        @user = User.find(params[:id])
     end
 
     def new
@@ -31,6 +31,9 @@ class UsersController < ApplicationController
            render 'new'
         end
     end
+    
+    def edit
+    end
 
     def destroy
         session.delete :username
@@ -41,11 +44,10 @@ class UsersController < ApplicationController
     
     
 
-    # def update
-    #     @user = User.find(params[:id])
-    #     @user.update(user_params)
-    #     redirect_to @user
-    # end
+    def update
+        @user.update(user_params)
+        redirect_to @user
+    end
 
     private
 

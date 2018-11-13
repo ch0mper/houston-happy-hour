@@ -5,3 +5,6 @@
 
 <p>Favorite Drink: <%= @user.favorite_drink %></p>
 <p>Age: <%= @user.age%></p>
+
+<%= link_to 'Edit', edit_user_path, class: "button" %> 
+<%= link_to 'Logout', @user, method: :delete, class: "button" %>
