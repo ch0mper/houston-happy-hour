@@ -1,6 +1,11 @@
 <h1>All Bars</h1>
 <% @bars.each do |b|%>
-  <ul><li><%= link_to b.name, b %></li></ul>
+  <div class="table">
+    <ul>
+      <li><%= link_to b.name, b %></li>
+    </ul>
+  </div>
 <% end %>
-
-<a class="button" href="bars/new">Add a new Bar</a>
+<br />
+<a class="button" href="bars/new">Add New Bar</a>
+<br /><br />
