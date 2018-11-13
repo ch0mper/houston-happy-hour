@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2018_11_12_200113) do
     t.string "wine_glass"
     t.string "wine_bottle"
     t.string "beer_and_shot"
+    t.string "well_drink"
     t.datetime "start_time"
     t.datetime "end_time"
     t.string "menu_img_url"
@@ -43,9 +44,9 @@ ActiveRecord::Schema.define(version: 2018_11_12_200113) do
 
   create_table "users", force: :cascade do |t|
     t.string "username"
-    t.string "password"
+    t.string "password_digest"
     t.string "favorite_drink"
-    t.string "age"
+    t.integer "age"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
