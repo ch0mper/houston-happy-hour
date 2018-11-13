@@ -1,6 +1,19 @@
 <h1>All Bars</h1>
-<% @bars.each do |b|%>
-  <ul><li><%= link_to b.name, b %></li></ul>
+
+<%= form_with url: bars_path, method: 'get' do |f| %>
+  <%= f.label :search, 'Search by Neighborhood' %>
+  <%= f.text_field :search %>
+  <%= f.submit %>
 <% end %>
 
-<a class="button" href="bars/new">Add a new Bar</a>
+<% @bars.each do |b| %>
+  <div class="table">
+    <ul>
+      <li><%= link_to b.name, b %>, <%= b.neighborhood%></li>
+    </ul>
+  </div>
+<% end %>
+<br />
+
+<a class="button" href="bars/new">Add New Bar</a>
+<br /><br />
