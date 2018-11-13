@@ -1,10 +1,13 @@
 <h1>Welcome <%=@user.username%>! </h1>
-   <h3>It's Happy Hour...</h3>
+<h3>It's Happy Hour...</h3>
 
-<p>Username: <%= @user.username%></p>
+<p><b>Favorite Drink:</b> <%= @user.favorite_drink %></p>
+<p><b>Age:</b> <%= @user.age%></p>
 
-<p>Favorite Drink: <%= @user.favorite_drink %></p>
-<p>Age: <%= @user.age%></p>
-
-<%= link_to 'Edit', edit_user_path, class: "button" %> 
+<h3>My Bars</h3>
+<% @user.bars.each do |b|%>
+<%= b.name %>
+<% end %>
+<br /><br />
+<%= link_to 'Edit', edit_user_path, class: "button" %>
 <%= link_to 'Logout', @user, method: :delete, class: "button" %>
