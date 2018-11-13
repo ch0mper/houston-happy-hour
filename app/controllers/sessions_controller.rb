@@ -1,26 +1,21 @@
 class SessionsController < ApplicationController
   # before_action :define_message
+  #
   
   def new
   end
 
   def create
-    # if params[:username].nil? || params[:username].empty?
-    #   return redirect_to :login
-    # else
-    #  session[:username] = params[:username]
-    #  redirect_to @user
-    # end
+
     @user = User.find_by(username: params[:username])
 
     if @user && @user.authenticate(params[:password])
       session[:username] = @user.username
-      redirect_to @user
-      byebug
+      redirect_to @user      
     else 
-      flash[:message] = 'Incorrect Username/Password! Please try again'
-    end
+      flash[:error_message] = 'Incorrect Username/Password! Please try again'
       redirect_to login_path
+    end
   end
 
   def destroy

@@ -33,4 +33,5 @@ end
 
 puts "There are now #{Bar.count} rows in the bars table"
 
+User.create(username: 'Alan', password: '1234')
 # Bar.create(name: "Uchi", address: "904 Westheimer Road", phone_number: "713-522-4808", neighborhood: "Montrose", vibe: "trendy", price_level: "$$", start_time: DateTime.new(2018,1,1,17), end_time: DateTime.new(2018,01,01,18,30), sake: 3, beer: 3, cocktail: 6, wine_glass: 7, wine_bottle: 27)

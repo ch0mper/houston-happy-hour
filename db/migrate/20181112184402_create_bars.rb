@@ -13,6 +13,7 @@ class CreateBars < ActiveRecord::Migration[5.2]
       t.string :wine_glass
       t.string :wine_bottle
       t.string :beer_and_shot
+      t.string :well_drink
       t.datetime :start_time
       t.datetime :end_time
       t.string :menu_img_url
