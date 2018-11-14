@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception
     before_action :define_error_message
 
+
     helper_method :current_user, :logged_in?
  
     def current_user

@@ -14,12 +14,13 @@ class UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
-        if @user.save
+        if @user.valid?
+            @user.save
           session[:user_id] = @user.id
           redirect_to @user
         else
-          flash[:error_message] = 'Must be 21, and username must be unique'
-          redirect_to 'new' ## make sure this works
+          flash[:error_message] = 'Hey...you must be 21, or your username already exists!'
+          redirect_to '/signup'
         end
     end
 
