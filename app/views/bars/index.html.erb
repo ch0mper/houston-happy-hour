@@ -1,6 +1,6 @@
 <h1>All Bars</h1>
 
-<%= form_with url: '/search', method: 'get' do |f| %>
+<%= form_with url: '/bars', method: 'get', local: true do |f| %>
   <%= f.label :search, 'Search by Neighborhood' %>
   <%= f.text_field :search %>
   <%= f.submit %>
