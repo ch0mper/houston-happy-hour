@@ -8,8 +8,8 @@
 
 <ul style="list-style: none;">
 <% @user.bars.each do |b|%>
-<li><%= b.name %></li>
-<% end %>
+<li><b><%= link_to b.name, b %></b><br /><%= b.neighborhood %>, <%= b.start_time.strftime("%I:%M%p") %> - <%= b.end_time.strftime("%I:%M%p") %></li>
+<br /><% end %>
 </ul>
 
 <br /><br />

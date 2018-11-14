@@ -1,14 +1,9 @@
 <h1><%= @bar.name %></h1>
-<a class="button" href="userbars/create">Add to my list! (REMOVE later)</a><br /><br /><br />
-
-
-
+<br />
 <%= form_for @user_bar do |f| %>
-  <p><%= f.label 'User' %></p>
-  <p><%= f.number_field :user_id %></p>
-  <p><%= f.label 'Bar' %></p>
-  <p><%= f.number_field :bar_id %></p>
-  <%= f.submit %>
+  <p><%= f.hidden_field :user_id, :value => session[:user_id] %></p>
+  <p><%= f.hidden_field :bar_id, :value => @bar.id %></p>
+  <%= f.submit "Add to My List!"%>
 <% end %>
 <br />
 
