@@ -13,22 +13,14 @@ class UsersController < ApplicationController
     end
 
     def create
-        # @user = User.new(params[:user])
-        # if @user.save
-        #     session[:username] = @user.username
-        #     redirect_to @user
-        # else
-        #     flash[:message] = "Password doesnt match!"
-        #     redirect_to :login
-        # end
-
         @user = User.new(user_params)
-          if @user.save
-            flash[:success] = "Welcome to the Sample App!"
-            redirect_to @user
-          else
-            render 'new'
-          end
+        if @user.save
+          session[:user_id] = @user.id
+          redirect_to @user
+        else
+          flash[:error_message] = 'Must be 21, and username must be unique'
+          redirect_to 'new' ## make sure this works
+        end
     end
 
     def edit
