@@ -2,14 +2,19 @@
 <h3>It's Happy Hour...</h3>
 
 <p><b>Favorite Drink:</b> <%= @user.favorite_drink %></p>
-<p><b>Age:</b> <%= @user.age%></p>
+<p><b>Age:</b> <%= @user.age %></p>
 
 <h3>My Bars</h3>
 
-<ul style="list-style: none;">
-<% @user.bars.each do |b|%>
-<li><b><%= link_to b.name, b %></b><br /><%= b.neighborhood %>, <%= b.start_time.strftime("%I:%M%p") %> - <%= b.end_time.strftime("%I:%M%p") %></li>
-<br /><% end %>
+<ul class="the-list-item">
+  <% @user.bars.each do |b|%>
+    <li><b><%= link_to b.name, b %>
+      <% if UserBar.find_by(bar_id: b.id, user_id: @user.id).like %>
+        <%= "- love!" %>
+      <% end %></b><br />
+    <%= b.neighborhood %>, <%= b.start_time.strftime("%I:%M%p") %> - <%= b.end_time.strftime("%I:%M%p") %></li>
+    <br />
+  <% end %>
 </ul>
 
 <br /><br />

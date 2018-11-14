@@ -1,17 +1,17 @@
 <h1>All Bars</h1>
 
 <%= form_with url: '/bars', method: 'get', local: true do |f| %>
-  <%= f.label :search, 'Search by Neighborhood' %>
+  <%= f.label :search, 'Filter by Neighborhood' %>
   <%= f.text_field :search %>
   <%= f.submit %>
 <% end %>
-
-<% @bars.each do |b| %>
-    <ul style="list-style: none;">
-      <li><%= link_to b.name, b %>, <%= b.neighborhood%></li>
-    </ul>
-<% end %>
 <br />
+<ul class="the-list-item">
+  <% @bars.each do |b| %>
+    <li><%= link_to b.name, b %>, <%= b.neighborhood%></li><br />
+  <% end %>
+</ul>
+
 
 <a class="button" href="bars/new">Add New Bar</a>
 <br /><br />
