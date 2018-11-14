@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_12_200113) do
+ActiveRecord::Schema.define(version: 2018_11_14_193922) do
 
   create_table "bars", force: :cascade do |t|
     t.string "name"
@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 2018_11_12_200113) do
     t.integer "bar_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "visit"
+    t.boolean "like"
     t.index ["bar_id"], name: "index_user_bars_on_bar_id"
     t.index ["user_id"], name: "index_user_bars_on_user_id"
   end
