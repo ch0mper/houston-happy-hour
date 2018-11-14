@@ -5,7 +5,6 @@ class BarsController < ApplicationController
     if params[:search]
       @bars = Bar.all.select do |b|
         b.neighborhood.include? params[:search]
-        byebug
       end
     else
       @bars = Bar.all
