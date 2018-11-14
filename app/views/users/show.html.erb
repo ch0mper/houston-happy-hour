@@ -5,9 +5,13 @@
 <p><b>Age:</b> <%= @user.age%></p>
 
 <h3>My Bars</h3>
+
+<ul style="list-style: none;">
 <% @user.bars.each do |b|%>
-<%= b.name %>
+<li><%= b.name %></li>
 <% end %>
+</ul>
+
 <br /><br />
 <%= link_to 'Edit', edit_user_path, class: "button" %>
 <%= link_to 'Logout', @user, method: :delete, class: "button" %>

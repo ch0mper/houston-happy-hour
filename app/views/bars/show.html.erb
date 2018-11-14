@@ -1,5 +1,16 @@
 <h1><%= @bar.name %></h1>
-<a class="button" href="userbars/create">Add to my list! (this button is fake)</a><br /><br /><br />
+<a class="button" href="userbars/create">Add to my list! (REMOVE later)</a><br /><br /><br />
+
+
+
+<%= form_for @user_bar do |f| %>
+  <p><%= f.label 'User' %></p>
+  <p><%= f.number_field :user_id %></p>
+  <p><%= f.label 'Bar' %></p>
+  <p><%= f.number_field :bar_id %></p>
+  <%= f.submit %>
+<% end %>
+<br />
 
 Address: <%= @bar.address %><br />
 Phone Number: <a href="tel:<%= @bar.phone_number %>"><%= @bar.phone_number %></a><br />

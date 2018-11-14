@@ -10,8 +10,8 @@ class SessionsController < ApplicationController
     @user = User.find_by(username: params[:username])
 
     if @user && @user.authenticate(params[:password])
-      session[:username] = @user.username
-      redirect_to @user      
+      session[:user_id] = @user.id
+      redirect_to @user
     else 
       flash[:error_message] = 'Incorrect Username/Password! Please try again'
       redirect_to login_path
@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:username] = nil
+    session[:user_id] = nil
     redirect_to :login
   end
 
