@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new'
   get '/login', to: 'sessions#new'
   get '/visit/:id', to: 'bars#do_visit'
+  get '/like/:id', to: 'bars#do_like'
 
   #to: 'userbar#create'
 

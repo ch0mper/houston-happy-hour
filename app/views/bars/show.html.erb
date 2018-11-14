@@ -6,8 +6,14 @@
     <p><%= f.hidden_field :bar_id, :value => @bar.id %></p>
     <%= f.submit "Add to My List!"%>
   <% end %>
-<% else %>
-  <%= link_to "click me", "/visit/#{@bar.id}" %>
+<% end %>
+
+<% if !UserBar.find_by(bar_id: @bar.id, user_id: session[:user_id]).visit %>
+  <%= link_to "Click me to say yes I visited long button!", "/visit/#{@bar.id}", class: "button" %><br />
+<% end %>
+
+<% if UserBar.find_by(bar_id: @bar.id, user_id: session[:user_id]).visit && !UserBar.find_by(bar_id: @bar.id, user_id: session[:user_id]).like %>
+  <%= link_to "DO Click me to say yes I liked!!! long button!", "/like/#{@bar.id}", class: "button" %><br />
 <% end %>
 <br />
 
