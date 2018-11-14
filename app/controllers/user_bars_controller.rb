@@ -3,10 +3,11 @@ class UserBarsController < ApplicationController
   end
 
   def create
-    @userbars = UserBar.create(userbar_params)
+    @userbar = UserBar.create(userbar_params)
+    redirect_to users_path #this needs to be updated 
   end
 
   def userbar_params
-    params.require(:userbar).permit(:user_id, :bar_id)
+    params.require(:user_bar).permit(:user_id, :bar_id)
   end
 end

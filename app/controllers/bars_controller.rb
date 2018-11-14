@@ -10,8 +10,17 @@ class BarsController < ApplicationController
       @bars = Bar.all
     end
   end
+  
+  # def search 
+  #   @bars = Bar.all.select do |b|
+  #     b.neighborhood.include? params[:search]
+  #   end
+  #   byebug
+  #   render "index"
+  # end
 
   def show
+    @user_bar = UserBar.new
   end
 
   def new
