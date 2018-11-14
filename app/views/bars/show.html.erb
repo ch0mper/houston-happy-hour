@@ -6,8 +6,8 @@
     <p><%= f.hidden_field :bar_id, :value => @bar.id %></p>
     <%= f.submit "Add to My List!"%>
   <% end %>
-  <% else %>
-  <%= "add a form here to say visited" %>
+<% else %>
+  <%= link_to "click me", "/visit/#{@bar.id}" %>
 <% end %>
 <br />
 
