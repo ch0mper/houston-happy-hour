@@ -1,0 +1,5 @@
+Copyright (c) 2018 JH Inc.
+
+JH, Inc. owns this App Content. However, JH supports the development and availability of bar information content in the public domain. Therefore, JH grants users of the JH App Content set forth in this repository certain rights to reuse, build upon and share such App Content subject to the terms of the App Content License set forth by JH. You must read carefully the terms and conditions contained in the App Content License as such terms govern access to and use of the App Content.
+
+JH is willing to allow you access to and use of the App Content only on the condition that you accept all of the terms and conditions contained in the App Content License set forth by JH. By accessing and/or using the App Content, you are agreeing to all of the terms and conditions contained in the App Content License. If you do not agree to any or all of the terms of the App Content License, you are prohibited from accessing, reviewing or using the App Content in any way.
