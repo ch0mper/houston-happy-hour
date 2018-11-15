@@ -1,14 +1,12 @@
 <h1>All Bars</h1>
-<a class="button" href="bars/new">Add New Bar</a>
-<br /><br />
 <%= form_with url: '/bars', method: 'get', local: true do |f| %>
   <%= f.hidden_field :sort_by_start_time %>
   <%= f.submit "Sort by Start Time" %>
-<% end %>
+<% end %><br />
 <%= form_with url: '/bars', method: 'get', local: true do |f| %>
   <%= f.hidden_field :sort_by_end_time %>
   <%= f.submit "Sort by End Time" %>
-<% end %>
+<% end %><br />
 <%= form_with url: '/bars', method: 'get', local: true do |f| %>
   <%= f.submit "Sort by Bar Name" %>
 <% end %>
@@ -20,7 +18,8 @@
   <%= f.submit "Show me!" %>
 <% end %>
 <br />
-
+<a class="button" href="bars/new">Add A New Bar + Happy Hour</a>
+<br><br />
 <ul class="the-list-item">
   <% @bars.each do |b| %>
     <li><b><%= link_to b.name, b, class: "bar_links" %></b><br /><%= b.neighborhood%>, <%= b.start_time.strftime("%I:%M%p") %> - <%= b.end_time.strftime("%I:%M%p") %></li><br />

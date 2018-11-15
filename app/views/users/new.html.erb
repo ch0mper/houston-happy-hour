@@ -1,14 +1,10 @@
 <h3>Create A Happy You!</h3>
 
 <%= form_with model: @user do |form| %>
-  <p><%= form.text_field :username, placeholder: "Username" %></p>
-  <p><%= form.password_field :password , placeholder: "Password"%></p>
-
+  <%= form.text_field :username, placeholder: "Username" %><br /><br />
+  <%= form.password_field :password , placeholder: "Password"%><br /><br />
+  <%= form.number_field :age, placeholder: 'Age' %><br /><br />
   <%= form.label 'Favorite drink' %>:
-  <%= form.select :favorite_drink, ['Gin & Tonic', 'Manhattan', 'Beer'] %><br />
-  <%= form.label 'Age' %><br />
-  <%= form.number_field :age %><br />
-
-
-  <%= form.submit %>
+  <%= form.select :favorite_drink, ['Gin & Tonic', 'Beer', 'Manhattan', 'Negroni', 'Red Wine', 'Water', 'White Wine Spritzer', 'Vodka Soda'] %><br /><br />
+  <%= form.submit "Let's gooo!"%>
 <% end %>

@@ -1,14 +1,25 @@
 <h1>Waddup <%=@user.username%>! </h1>
-<h3>It's Happy Hour... somewhere</h3>
+<h3>It's Happy Hour... somewhere.</h3>
 
-<p><b>Favorite Drink:</b> <%= @user.favorite_drink %></p>
-<p><b>Age:</b> <%= @user.age %></p><br />
+<h4><b>Favorite Drink:</b> <%= @user.favorite_drink %></h4>
+<h4><b>Age:</b> <%= @user.age %></h4><br />
 
-<ul class="the-list-item">
   <% if @user.bars == [] %>
-    <h4><%=@user.username%>!</h4>Browse through <%= link_to 'our list', bars_path %> of bars + happy hours, and add them to your list to visit later.
+    <h4><%=@user.username%>, let's get started!</h4>
+    Browse through <%= link_to 'our list', bars_path %> of bars + happy hours.<br />
+    See any you like? <br />
+    Add the bar to your list to visit later!<br />
+    Once you visit, you can indicate you visited and hit dat like button.<br />
+    <h4>yay!</h4>
+
   <% else %>
-  <h3>My Bars</h3>
+
+  <h2><%=@user.username%>'s Bars</h2>
+
+  <div class="sliding">
+  <h3>Click on a bar to see happy hour details.</h3></div><br />
+
+  <ul class="the-list-item">
   <% @user.bars.each do |b|%>
     <li><b><%= link_to b.name, b, class: "bar_links" %>
       <% if UserBar.find_by(bar_id: b.id, user_id: @user.id).visit %>
@@ -19,10 +30,10 @@
       <% end %></b><br />
     <%= b.neighborhood %>, <%= b.start_time.strftime("%I:%M%p") %> - <%= b.end_time.strftime("%I:%M%p") %></li>
     <br />
-  <% end %>
+    <% end %>
   <% end %>
 </ul>
 
 <br /><br />
-<%= link_to 'Edit', edit_user_path, class: "button" %>
+<%= link_to 'Edit Profile', edit_user_path, class: "button" %>
 <%= link_to 'Logout', @user, method: :delete, class: "button" %>

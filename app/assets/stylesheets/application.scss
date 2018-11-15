@@ -34,9 +34,6 @@
     font-size: 16px;
   }
 
-  $white_opaque: rgba(250, 250, 250, .3);
-  $dark: #1F7972;
-
   * {
   	box-sizing: border-box;
   }
@@ -60,4 +57,49 @@
      background: white;
      opacity: 0.9;
      padding: 10px;
+   }
+
+   .sliding {
+    height: 50px;
+    overflow: hidden;
+    position: relative;
+   }
+   .sliding h3 {
+    font-size: 2em;
+    color: black;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    line-height: 50px;
+    text-align: center;
+    /* Starting position */
+    -moz-transform:translateX(100%);
+    -webkit-transform:translateX(100%);
+    transform:translateX(100%);
+    /* Apply animation to this element */
+    -moz-animation: sliding 15s linear infinite;
+    -webkit-animation: sliding 15s linear infinite;
+    animation: sliding 15s linear infinite;
+   }
+   /* Move it (define the animation) */
+   @-moz-keyframes sliding {
+    0%   { -moz-transform: translateX(100%); }
+    100% { -moz-transform: translateX(-100%); }
+   }
+   @-webkit-keyframes sliding {
+    0%   { -webkit-transform: translateX(100%); }
+    100% { -webkit-transform: translateX(-100%); }
+   }
+   @keyframes sliding {
+    0%   {
+    -moz-transform: translateX(100%); /* Firefox bug fix */
+    -webkit-transform: translateX(100%); /* Firefox bug fix */
+    transform: translateX(100%);
+    }
+    100% {
+    -moz-transform: translateX(-100%); /* Firefox bug fix */
+    -webkit-transform: translateX(-100%); /* Firefox bug fix */
+    transform: translateX(-100%);
+    }
    }

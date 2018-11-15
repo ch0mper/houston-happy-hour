@@ -6,10 +6,11 @@
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
       <ul class="nav navbar-nav">
-        <li><% if session[:user_id] %><%= link_to "My Bars", user_path(session[:user_id]) %><% end %></li>
-        <li><a href="/bars">All Bars</a></li>
-        <li><a href="/users">Users</a></li>
-        <li><%= link_to 'Logout', @user, method: :delete %></li>
+        <li><% if session[:user_id] %><%= link_to "My Bars 🍸", user_path(session[:user_id]) %><% end %></li>
+        <li><a href="/bars">All Bars 🥂</a></li>
+        <li><a href="/users">Users 👥</a></li>
+        <li><% if session[:user_id] %><%= link_to 'Logout 🚪', @user, method: :delete %><% end %></li>
+        <li><% if !session[:user_id] %><%= link_to 'Login 🔑', login_path %><% end %></li>
       </ul>
   </div><!-- /.container-fluid -->
 </nav>
