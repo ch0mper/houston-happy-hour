@@ -1,13 +1,12 @@
 class UsersController < ApplicationController
-    
+
     #before_action :current_user
     before_action :require_login
     skip_before_action :require_login, only: [:new, :create]
     before_action :set_user, only: [:show, :edit, :update]
 
-    
     def index
-        @users = User.all
+        @users = User.all.sort_by &:username
     end
 
     def show
@@ -25,7 +24,7 @@ class UsersController < ApplicationController
           session[:user_id] = @user.id
           redirect_to @user
         else
-          flash[:error_message] = 'Hey...you must be 21, or your username already exists!'
+          flash[:error_message] = 'Hey... you must be 21, or your username already exists!'
           redirect_to '/signup'
         end
     end

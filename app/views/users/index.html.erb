@@ -1,9 +1,6 @@
-<h1>Happy People</h1>
+<h1>Happy People</h1><br />
 <% @users.each do |u|%>
   <ul class="the-list-item">
-    <li><%= link_to u.username, u %></li>
+    <li><%= link_to u.username, u %> likes <%= u.bars.count %> bars.</li>
   </ul>
 <% end %>
-
-<a class="button" href="users/new">Create New User</a>
-<br /><br />
