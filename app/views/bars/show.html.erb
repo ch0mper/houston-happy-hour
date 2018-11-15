@@ -4,16 +4,16 @@
   <%= form_for @user_bar do |f| %>
     <p><%= f.hidden_field :user_id, :value => session[:user_id] %></p>
     <p><%= f.hidden_field :bar_id, :value => @bar.id %></p>
-    <%= f.submit "Add to My List!"%>
+    <%= f.submit "Ooh I want to go here!"%>
   <% end %>
 <% end %>
 
 <% if UserBar.find_by(bar_id: @bar.id, user_id: session[:user_id]) && !UserBar.find_by(bar_id: @bar.id, user_id: session[:user_id]).visit %>
-  <%= link_to "Click me to say yes I visited long button!", "/visit/#{@bar.id}", class: "button" %><br />
+  <%= link_to "I visited!", "/visit/#{@bar.id}", class: "button" %><br />
 <% end %>
 
 <% if UserBar.find_by(bar_id: @bar.id, user_id: session[:user_id]) && UserBar.find_by(bar_id: @bar.id, user_id: session[:user_id]).visit && !UserBar.find_by(bar_id: @bar.id, user_id: session[:user_id]).like %>
-  <%= link_to "DO Click me to say yes I liked this bar!!! if you didn't like it, don't click!", "/like/#{@bar.id}", class: "button" %><br />
+  <%= link_to "I went and I liked this bar!!! Don't click if you didn't like it.", "/like/#{@bar.id}", class: "button" %><br />
 <% end %>
 <br />
 

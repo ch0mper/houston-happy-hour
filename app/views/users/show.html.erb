@@ -2,21 +2,24 @@
 <h3>It's Happy Hour... somewhere</h3>
 
 <p><b>Favorite Drink:</b> <%= @user.favorite_drink %></p>
-<p><b>Age:</b> <%= @user.age %></p>
-
-<h3>My Bars</h3>
+<p><b>Age:</b> <%= @user.age %></p><br />
 
 <ul class="the-list-item">
+  <% if @user.bars == [] %>
+    <h4><%=@user.username%>!</h4>Browse through <%= link_to 'our list', bars_path %> of bars + happy hours, and add them to your list to visit later.
+  <% else %>
+  <h3>My Bars</h3>
   <% @user.bars.each do |b|%>
     <li><b><%= link_to b.name, b, class: "bar_links" %>
       <% if UserBar.find_by(bar_id: b.id, user_id: @user.id).visit %>
-        <%= "visited" %>
+        <%= "- visited" %>
       <% end %>
       <% if UserBar.find_by(bar_id: b.id, user_id: @user.id).like %>
-        <%= "love" %>
+        <%= "- love" %>
       <% end %></b><br />
     <%= b.neighborhood %>, <%= b.start_time.strftime("%I:%M%p") %> - <%= b.end_time.strftime("%I:%M%p") %></li>
     <br />
+  <% end %>
   <% end %>
 </ul>
 
