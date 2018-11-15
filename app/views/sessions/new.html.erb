@@ -1,5 +1,7 @@
 <% if session[:user_id] %>
     <h1><b>WHAT ARE YOU DOING HERE, GO OUT TO A BAR!</h1></b>
+    <p>It's <%= DateTime.now.strftime("%I:%M%p") %></p>
+    <!-- DateTime.now.strftime("%m/%d/%Y")   to render the date only  -->
   <% else %>
     <h2>Your Happiest Hour Begins Now!</h2>
         <%= form_with url: '/sessions' do |f| %>

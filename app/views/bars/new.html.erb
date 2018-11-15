@@ -1,17 +1,17 @@
 <h1>Add a New Bar</h1>
 <%= form_for @bar do |f| %>
   <%= f.label :name, 'Bar Name' %>:
-  <%= f.text_field :name %><br /><br />
+  <%= f.text_field :name, :required => true %><br /><br />
   <%= f.label :address %>:
-  <%= f.text_field :address %><br /><br />
+  <%= f.text_field :address, :required => true %><br /><br />
   <%= f.label :neighborhood %>:
-  <%= f.select :neighborhood, ['Downtown', 'Galleria', 'Midtown', 'Montrose', 'Spring Branch']%><br /><br />
+  <%= f.select :neighborhood, ['Downtown', 'Galleria', 'Midtown', 'Montrose', 'Spring Branch'], :required => true %><br /><br />
   <%= f.label :phone_number %>:
-  <%= f.text_field :phone_number, placeholder: 'xxx-xxx-xxxx' %><br /><br />
+  <%= f.text_field :phone_number, placeholder: 'xxx-xxx-xxxx', :required => true %><br /><br />
   <%= f.label :vibe %>:
-  <%= f.select :vibe, ['Casual', 'Chill', 'Classy', 'Divey', 'Festive', 'Lit', 'Sports', 'Super Trendy', 'Trendy']%><br /><br />
-  <%= f.label :price_level %>:
-  <%= f.select :price_level, ['$', '$$', '$$$', '$$$$']%><br /><br />
+  <%= f.select :vibe, ['Casual', 'Chill', 'Classy', 'Divey', 'Festive', 'Lit', 'Sports', 'Super Trendy', 'Trendy'], :required => true %><br /><br />
+  <%= f.label :price_level, "Happy Hour Priciness" %>:
+  <%= f.select :price_level, ['$', '$$', '$$$', '$$$$'], :required => true %><br /><br />
   <%= f.label :sake %>:
   <%= f.text_field :sake, placeholder: '$' %><br /><br />
   <%= f.label :beer %>:
