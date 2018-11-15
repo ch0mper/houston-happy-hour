@@ -1,5 +1,5 @@
-<h1>Welcome <%=@user.username%>! </h1>
-<h3>It's Happy Hour...</h3>
+<h1>Waddup <%=@user.username%>! </h1>
+<h3>It's Happy Hour... somewhere</h3>
 
 <p><b>Favorite Drink:</b> <%= @user.favorite_drink %></p>
 <p><b>Age:</b> <%= @user.age %></p>
@@ -8,12 +8,12 @@
 
 <ul class="the-list-item">
   <% @user.bars.each do |b|%>
-    <li><b><%= link_to b.name, b %>
+    <li><b><%= link_to b.name, b, class: "bar_links" %>
       <% if UserBar.find_by(bar_id: b.id, user_id: @user.id).visit %>
-        <%= "- visited!" %>
+        <%= "visited" %>
       <% end %>
       <% if UserBar.find_by(bar_id: b.id, user_id: @user.id).like %>
-        <%= "- love!" %>
+        <%= "love" %>
       <% end %></b><br />
     <%= b.neighborhood %>, <%= b.start_time.strftime("%I:%M%p") %> - <%= b.end_time.strftime("%I:%M%p") %></li>
     <br />

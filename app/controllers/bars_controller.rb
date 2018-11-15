@@ -4,12 +4,9 @@ class BarsController < ApplicationController
 
   def index
     if params[:search]
-      @bars = Bar.all.select do |b|
-        b.neighborhood.include? params[:search]
-      end
+      @bars = Bar.where("neighborhood like ?", "%#{params[:search]}%")
     else
-      @bars = Bar.all
-      #byebug
+      @bars = Bar.all.order(:name)
     end
   end
 
