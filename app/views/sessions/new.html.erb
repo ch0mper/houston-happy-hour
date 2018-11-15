@@ -1,10 +1,13 @@
-<h2>Your Happiest Hour Begins Now!</h2>
-
-    <%= form_with url: '/sessions' do |f| %>
-      <p><%= f.text_field :username, placeholder: "Username" %></p>
-      <p><%= f.password_field :password, placeholder: "Password" %></p>
-      <p><%= f.submit 'Login' %></p>
-    <% end %>
-<br />
-<h3><i>Wanna Be Happy?</i>  <br /><br />
-<%= link_to 'Sign Up Now', signup_path %></h3>
+<% if session[:user_id] %>
+    <h1><b>WHAT ARE YOU DOING HERE, GO OUT TO A BAR!</h1></b>
+  <% else %>
+    <h2>Your Happiest Hour Begins Now!</h2>
+        <%= form_with url: '/sessions' do |f| %>
+          <p><%= f.text_field :username, placeholder: "Username" %></p>
+          <p><%= f.password_field :password, placeholder: "Password" %></p>
+          <p><%= f.submit 'Login' %></p>
+        <% end %>
+    <br />
+    <h3><b><i>Wanna Be Happy?</i>  <br /><br />
+    <%= link_to 'Sign Up Now', signup_path, class:"button" %></b></h3>
+<% end %>
