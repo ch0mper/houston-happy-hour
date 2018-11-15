@@ -1,17 +1,28 @@
 <h1>All Bars</h1>
-
-<%= form_with url: '/bars', method: 'get', local: true do |f| %>
-  <%= f.label :search, 'Filter by Neighborhood' %>
-  <%= f.text_field :search %>
-  <%= f.submit %>
-<% end %>
-<br />
-<ul class="the-list-item">
-  <% @bars.each do |b| %>
-    <li><%= link_to b.name, b %>, <%= b.neighborhood%></li><br />
-  <% end %>
-</ul>
-
-
 <a class="button" href="bars/new">Add New Bar</a>
 <br /><br />
+<%= form_with url: '/bars', method: 'get', local: true do |f| %>
+  <%= f.hidden_field :sort_by_start_time %>
+  <%= f.submit "Sort by Start Time" %>
+<% end %>
+<%= form_with url: '/bars', method: 'get', local: true do |f| %>
+  <%= f.hidden_field :sort_by_end_time %>
+  <%= f.submit "Sort by End Time" %>
+<% end %>
+<%= form_with url: '/bars', method: 'get', local: true do |f| %>
+  <%= f.submit "Sort by Bar Name" %>
+<% end %>
+<br />
+
+<%= form_with url: '/bars', method: 'get', local: true do |f| %>
+  <%= f.label :search, 'Search by Neighborhood' %>
+  <%= f.text_field :search %>
+  <%= f.submit "Show me!" %>
+<% end %>
+<br />
+
+<ul class="the-list-item">
+  <% @bars.each do |b| %>
+    <li><b><%= link_to b.name, b, class: "bar_links" %></b><br /><%= b.neighborhood%>, <%= b.start_time.strftime("%I:%M%p") %> - <%= b.end_time.strftime("%I:%M%p") %></li><br />
+  <% end %>
+</ul>

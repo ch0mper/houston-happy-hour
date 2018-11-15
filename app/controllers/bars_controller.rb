@@ -5,6 +5,10 @@ class BarsController < ApplicationController
   def index
     if params[:search]
       @bars = Bar.where("neighborhood like ?", "%#{params[:search]}%")
+    elsif params[:sort_by_start_time]
+      @bars = Bar.all.order(:start_time)
+    elsif params[:sort_by_end_time]
+      @bars = Bar.all.order(:end_time)
     else
       @bars = Bar.all.order(:name)
     end

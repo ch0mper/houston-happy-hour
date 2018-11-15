@@ -15,7 +15,7 @@
         <%= "- visited" %>
       <% end %>
       <% if UserBar.find_by(bar_id: b.id, user_id: @user.id).like %>
-        <%= "- love" %>
+        <%= "- ♡" %>
       <% end %></b><br />
     <%= b.neighborhood %>, <%= b.start_time.strftime("%I:%M%p") %> - <%= b.end_time.strftime("%I:%M%p") %></li>
     <br />
