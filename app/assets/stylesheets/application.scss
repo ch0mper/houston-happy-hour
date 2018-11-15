@@ -14,6 +14,12 @@
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import url('https://fonts.googleapis.com/css?family=Cabin+Sketch');
+ @import url('https://fonts.googleapis.com/css?family=Nunito');
+
+ .fancy-font {
+   font-family: 'Cabin Sketch', cursive;
+ }
 
  .the-list-item {
    margin-right: 10%;
@@ -48,7 +54,7 @@
      text-align: center;
      background-image: url("https://www.maxim.com/.image/c_limit%2Ccs_srgb%2Cq_auto:good%2Cw_1400/MTUwODg5MTM1MDY0NzU0MDA5/cocktails-promo.webp");
 	   background-attachment: fixed;
-     font-family: 'Helvetica', sans-serif;
+     font-family: 'Nunito', sans-serif;
    }
 
    .thebox {

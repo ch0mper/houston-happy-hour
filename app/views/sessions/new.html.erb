@@ -1,5 +1,5 @@
 <% if session[:user_id] %>
-	<h1><b>WHAT ARE YOU DOING HERE, GO OUT TO A BAR!</b></h1>
+	<h1 class="fancy-font"><b>WHAT ARE YOU DOING HERE, GO OUT TO A BAR!</b></h1>
     <!-- It's DateTime.now.strftime("%I:%M%p") -->
     <!-- DateTime.now.strftime("%m/%d/%Y")   to render the date only  -->
   <% else %>
@@ -10,6 +10,6 @@
           <p><%= f.submit 'Login' %></p>
         <% end %>
     <br />
-    <h3><b><i>Wanna Be Happy?</i>  <br /><br />
+    <h3>🍻 <b><i>Wanna Be Happy?</i> 🍻<br /><br />
     <%= link_to 'Create an Account', signup_path, class:"button" %></b></h3>
 <% end %>
