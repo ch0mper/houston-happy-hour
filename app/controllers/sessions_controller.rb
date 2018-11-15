@@ -1,6 +1,8 @@
 class SessionsController < ApplicationController
-  # before_action :define_message
-  #
+
+  before_action :require_login
+  before_action :current_user
+  skip_before_action :require_login, only: [:new, :create]
   
   def new
   end
@@ -19,7 +21,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:user_id] = nil
+    session.delete :user_id
     redirect_to :login
   end
 

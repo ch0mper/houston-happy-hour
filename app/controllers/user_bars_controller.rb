@@ -4,7 +4,7 @@ class UserBarsController < ApplicationController
 
   def create
     @userbar = UserBar.create(userbar_params)
-    redirect_to users_path #this needs to be updated 
+    redirect_to user_path(session[:user_id])
   end
 
   def userbar_params
