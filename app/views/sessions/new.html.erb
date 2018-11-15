@@ -1,10 +1,5 @@
 <h2>Your Happiest Hour Begins Now!</h2>
 
-<% if flash[:error_message] %>
-   <div class="error_message"><%= flash[:error_message] %></div>
-<% end %>
-
-
     <%= form_with url: '/sessions' do |f| %>
       <p><%= f.text_field :username, placeholder: "Username" %></p>
       <p><%= f.password_field :password, placeholder: "Password" %></p>

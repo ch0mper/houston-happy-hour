@@ -1,11 +1,17 @@
 class UsersController < ApplicationController
+    
+    #before_action :current_user
+    before_action :require_login
+    skip_before_action :require_login, only: [:new, :create]
     before_action :set_user, only: [:show, :edit, :update]
 
+    
     def index
         @users = User.all
     end
 
     def show
+        # this works, it is using before_action :set_user
     end
 
     def new
@@ -25,15 +31,17 @@ class UsersController < ApplicationController
     end
 
     def edit
+        # this works, it is using before_action :set_user
     end
 
     def update
+        # this works, it is using before_action :set_user
         @user.update(user_params)
         redirect_to @user
     end
 
     def destroy
-        session.delete :username
+        session.delete :user_id
         # session[:username] = nil
         redirect_to :login
     end

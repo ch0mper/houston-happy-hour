@@ -5,11 +5,12 @@ class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception
     before_action :define_error_message
 
-
-    helper_method :current_user, :logged_in?
+    helper_method :current_user, :logged_in?, :require_login
  
     def current_user
-      User.find(session[:user_id])
+      if session[:user_id]
+        @user = User.find(session[:user_id])
+      end
     end
     
     def logged_in?
@@ -18,6 +19,15 @@ class ApplicationController < ActionController::Base
 
     def define_error_message
         @error_message = flash[:error_message]
+    end
+
+    def require_login
+        #if !logged_in?
+        if !session[:user_id]
+          flash[:error_message] = "Must login to use app."
+          #byebug
+          redirect_to '/login'
+        end
     end
 
 end

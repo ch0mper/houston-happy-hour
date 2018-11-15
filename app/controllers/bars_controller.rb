@@ -1,4 +1,5 @@
 class BarsController < ApplicationController
+  before_action :require_login
   before_action :define_bars, only: [:show, :new, :create, :edit, :update]
 
   def index
@@ -8,16 +9,9 @@ class BarsController < ApplicationController
       end
     else
       @bars = Bar.all
+      #byebug
     end
   end
-
-  # def search
-  #   @bars = Bar.all.select do |b|
-  #     b.neighborhood.include? params[:search]
-  #   end
-  #   byebug
-  #   render "index"
-  # end
 
   def show
     @user_bar = UserBar.new
