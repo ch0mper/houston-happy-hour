@@ -31,6 +31,16 @@ class BarsController < ApplicationController
     redirect_to @bar
   end
 
+  def do_visit
+    UserBar.find_by(bar_id: params[:id], user_id: session[:user_id]).visited
+    redirect_to bar_path(params[:id])
+  end
+
+  def do_like
+    UserBar.find_by(bar_id: params[:id], user_id: session[:user_id]).liked
+    redirect_to user_path(session[:user_id])
+  end
+
   def define_bars
     if params[:id]
       @bar = Bar.find(params[:id])

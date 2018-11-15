@@ -9,6 +9,9 @@
 <ul class="the-list-item">
   <% @user.bars.each do |b|%>
     <li><b><%= link_to b.name, b %>
+      <% if UserBar.find_by(bar_id: b.id, user_id: @user.id).visit %>
+        <%= "- visited!" %>
+      <% end %>
       <% if UserBar.find_by(bar_id: b.id, user_id: @user.id).like %>
         <%= "- love!" %>
       <% end %></b><br />
