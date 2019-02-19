@@ -14,3 +14,5 @@ Create a username to access the website.
 -Users can Facetime/contact the bars through the web application for more information
 
 -Users can view, create, edit and update their profiles as needed.
+
+![](happy-hour.gif)
